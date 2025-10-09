@@ -1,0 +1,501 @@
+<!Doctype html>
+<html">
+<head>
+	<title>Catalogue - Project KLARO</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../Styles/background.css">
+		<link rel="stylesheet" href="../Styles/table.css">
+		<link rel="stylesheet" href="../Styles/header.css">
+</head>
+<body>
+
+	<canvas id="particles" aria-hidden="true"></canvas>
+
+	<!-- Heading bar-->
+	<nav class="heading-bar visible" aria-label="Primary menu" aria-hidden="false">
+		<div class="heading-inner">
+			<a class="menu-item" href="details.html">Main</a>
+			<div class="menu-item active" aria-current="page">Dataset</div>
+			<div class="menu-item">Optimize</div>
+		</div>
+	</nav>
+
+	<!--Table Dataset-->
+	<main>
+		<div class="table-wrapper">
+			<table class="dataset-table">
+			<tr>
+				<th>No.</th>
+				<th>Mitigation Project Options</th>
+				<th>Costs ($)</th>
+				<th>CO2 (tons)</th>
+				<th>NO (tons)</th>
+				<th>SO2 (tons)</th>
+				<th>PM2.5 (tons)</th>
+				<th>CH4 (tons)</th>
+				<th>VOC (tons)</th>
+				<th>CO (tons)</th>
+				<th>NH3 (tons)</th>
+				<th>BC (tons)</th>
+				<th>N2O (tons)</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>Large Solar Park</td>
+				<td>4000</td>
+				<td>60</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Small Solar Installations</td>
+				<td>1200</td>
+				<td>18</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Wind Farm</td>
+				<td>3800</td>
+				<td>55</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Gas-to-renewables conversion</td>
+				<td>3200</td>
+				<td>25</td>
+				<td>1</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>1.5</td>
+				<td>0.5</td>
+				<td>2</td>
+				<td>0.05</td>
+				<td>0.01</td>
+				<td>0.3</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Boiler Retrofit</td>
+				<td>1400</td>
+				<td>20</td>
+				<td>0.9</td>
+				<td>0.4</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>0.05</td>
+				<td>1.2</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0.05</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Catalytic Converters for Buses</td>
+				<td>2600</td>
+				<td>30</td>
+				<td>2.8</td>
+				<td>0.6</td>
+				<td>0.8</td>
+				<td>0</td>
+				<td>0.5</td>
+				<td>5</td>
+				<td>0.01</td>
+				<td>0.05</td>
+				<td>0.02</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>Diesel Bus Replacement</td>
+				<td>5000</td>
+				<td>48</td>
+				<td>3.2</td>
+				<td>0.9</td>
+				<td>1</td>
+				<td>0</td>
+				<td>0.7</td>
+				<td>6</td>
+				<td>0.02</td>
+				<td>0.08</td>
+				<td>0.03</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>Traffic Signal/Flow Upgrade</td>
+				<td>1000</td>
+				<td>12</td>
+				<td>0.6</td>
+				<td>0.1</td>
+				<td>0.4</td>
+				<td>0.05</td>
+				<td>0.2</td>
+				<td>3</td>
+				<td>0.02</td>
+				<td>0.02</td>
+				<td>0.01</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>Low-Emission Stove Program</td>
+				<td>180</td>
+				<td>2</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0.7</td>
+				<td>0</td>
+				<td>0.01</td>
+				<td>1.5</td>
+				<td>0.03</td>
+				<td>0.2</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>Residential Insulation/Efficiency</td>
+				<td>900</td>
+				<td>15</td>
+				<td>0.1</td>
+				<td>0.05</td>
+				<td>0.05</td>
+				<td>0.02</td>
+				<td>0.02</td>
+				<td>0.5</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.01</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>Industrial Scrubbers</td>
+				<td>4200</td>
+				<td>6</td>
+				<td>0.4</td>
+				<td>6</td>
+				<td>0.4</td>
+				<td>0</td>
+				<td>0.1</td>
+				<td>0.6</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>Waste Methane Capture System</td>
+				<td>3600</td>
+				<td>28</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>0.05</td>
+				<td>8</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.05</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>Landfill Gas-to-energy</td>
+				<td>3400</td>
+				<td>24</td>
+				<td>0.15</td>
+				<td>0.05</td>
+				<td>0.03</td>
+				<td>6.5</td>
+				<td>0.1</td>
+				<td>0.05</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.03</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>Reforestation (acre-package)</td>
+				<td>220</td>
+				<td>3.5</td>
+				<td>0.04</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0.8</td>
+				<td>0.03</td>
+				<td>0.01</td>
+				<td>0</td>
+				<td>0.05</td>
+				<td>0.05</td>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>Urban Tree Canopy Program (street trees)</td>
+				<td>300</td>
+				<td>4.2</td>
+				<td>0.06</td>
+				<td>0.01</td>
+				<td>0.03</td>
+				<td>0.6</td>
+				<td>0.02</td>
+				<td>0.05</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.02</td>
+			</tr>
+			<tr>
+				<td>16</td>
+				<td>Industrial Energy Efficiency Retrofit</td>
+				<td>1600</td>
+				<td>22</td>
+				<td>0.5</td>
+				<td>0.3</td>
+				<td>0.15</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>0.01</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.03</td>
+			</tr>
+			<tr>
+				<td>17</td>
+				<td>Natural Gas Leak Repair</td>
+				<td>1800</td>
+				<td>10</td>
+				<td>0.05</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0.14</td>
+				<td>0.02</td>
+				<td>0.02</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0.01</td>
+			</tr>
+			<tr>
+				<td>18</td>
+				<td>Agricultural Methane Reduction</td>
+				<td>2800</td>
+				<td>8</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>27.2</td>
+				<td>0</td>
+				<td>5</td>
+				<td>0.2</td>
+				<td>0.1</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>19</td>
+				<td>Clean Cookstove &amp; Fuel Switching (community scale)</td>
+				<td>450</td>
+				<td>3.2</td>
+				<td>0.04</td>
+				<td>0.02</td>
+				<td>0.9</td>
+				<td>0.1</td>
+				<td>0.02</td>
+				<td>0</td>
+				<td>2</td>
+				<td>0.05</td>
+				<td>0.2</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>Rail Electrification</td>
+				<td>6000</td>
+				<td>80</td>
+				<td>2</td>
+				<td>0.4</td>
+				<td>1.2</td>
+				<td>0</td>
+				<td>0.6</td>
+				<td>1</td>
+				<td>0</td>
+				<td>0.2</td>
+				<td>0.05</td>
+			</tr>
+			<tr>
+				<td>21</td>
+				<td>EV Charging Infrastructure</td>
+				<td>2200</td>
+				<td>20</td>
+				<td>0.3</td>
+				<td>0.05</td>
+				<td>0.1</td>
+				<td>0</td>
+				<td>0.5</td>
+				<td>0</td>
+				<td>1</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>22</td>
+				<td>Biochar for soils (per project unit)</td>
+				<td>1400</td>
+				<td>6</td>
+				<td>0.01</td>
+				<td>0</td>
+				<td>0</td>
+				<td>12.5</td>
+				<td>0</td>
+				<td>1</td>
+				<td>0.2</td>
+				<td>0</td>
+				<td>0.2</td>
+			</tr>
+			<tr>
+				<td>23</td>
+				<td>Industrial VOC</td>
+				<td>2600</td>
+				<td>2</td>
+				<td>0.01</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>6.5</td>
+				<td>0.1</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>24</td>
+				<td>Heavy-Duty Truck Retrofit</td>
+				<td>4200</td>
+				<td>36</td>
+				<td>2.2</td>
+				<td>0.6</td>
+				<td>0.6</td>
+				<td>0</td>
+				<td>0.3</td>
+				<td>4.2</td>
+				<td>0.01</td>
+				<td>0.04</td>
+				<td>0.02</td>
+			</tr>
+			<tr>
+				<td>25</td>
+				<td>Port/Harbor Electrification</td>
+				<td>4800</td>
+				<td>28</td>
+				<td>1.9</td>
+				<td>0.8</td>
+				<td>0.7</td>
+				<td>0</td>
+				<td>0.2</td>
+				<td>3.6</td>
+				<td>0.01</td>
+				<td>0.03</td>
+				<td>0.02</td>
+			</tr>
+			<tr>
+				<td>26</td>
+				<td>Black Carbon reduction</td>
+				<td>600</td>
+				<td>1.8</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0.6</td>
+				<td>0.05</td>
+				<td>0.01</td>
+				<td>1</td>
+				<td>0.02</td>
+				<td>0.9</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>27</td>
+				<td>Wetlands restoration</td>
+				<td>1800</td>
+				<td>10</td>
+				<td>0.03</td>
+				<td>0.02</td>
+				<td>0.02</td>
+				<td>3.2</td>
+				<td>0.01</td>
+				<td>0.05</td>
+				<td>0.15</td>
+				<td>0.02</td>
+				<td>0.04</td>
+			</tr>
+			<tr>
+				<td>28</td>
+				<td>Household LPG conversion program</td>
+				<td>700</td>
+				<td>2.5</td>
+				<td>0.03</td>
+				<td>0.01</td>
+				<td>0.4</td>
+				<td>0.05</td>
+				<td>0.02</td>
+				<td>1.2</td>
+				<td>0.03</td>
+				<td>0.1</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>29</td>
+				<td>Industrial process change</td>
+				<td>5000</td>
+				<td>3</td>
+				<td>0.02</td>
+				<td>0.01</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1.5</td>
+			</tr>
+			<tr>
+				<td>30</td>
+				<td>Behavioral demand-reduction program</td>
+				<td>400</td>
+				<td>9</td>
+				<td>0.4</td>
+				<td>0.05</td>
+				<td>0.05</td>
+				<td>0.01</td>
+				<td>0.3</td>
+				<td>2.5</td>
+				<td>0.01</td>
+				<td>0.01</td>
+				<td>0.01</td>
+			</tr>
+			</table>
+		</div>
+	</main>
+
+		<script src="../Scripts/particles.js"></script>
+		<script src="../Scripts/image_rotate.js"></script>
+		<script src="../Scripts/table.js"></script>
+</body>
+</html>
