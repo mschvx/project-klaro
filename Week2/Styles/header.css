@@ -1,0 +1,68 @@
+/* Header */
+
+:root{
+  --accent: #6fe3a3;
+  --muted: #98a6a3;
+}
+
+nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.heading-inner{
+  width: min(800px, 94vw);
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(6,18,22,0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.heading-inner .menu-item{
+  flex: 1;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  text-decoration: none; 
+  transition: transform 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.heading-inner .menu-item:not(.active):hover{
+  background: linear-gradient(180deg, rgba(111,227,163,0.08), rgba(47,184,120,0.06));
+  color: var(--accent);
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.heading-inner .menu-item.active{
+  background: linear-gradient(180deg, rgba(111,227,163,0.12), rgba(47,184,120,0.08));
+  color: var(--accent);
+  transform: none;
+  text-decoration: none;
+}
+
+/* Ensure anchors with .menu-item don't show underline when focused */
+.heading-inner .menu-item:focus,
+.heading-inner .menu-item:focus-visible{
+  text-decoration: none;
+}
+
+@media (max-width: 880px){
+  .heading-inner{ padding: 0.5rem 0.6rem; justify-content: center }
+  .heading-inner .menu-item{ font-size: 0.95rem; padding: 0.35rem 0.5rem; margin: 0 0.4rem }
+}

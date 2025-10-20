@@ -1,0 +1,21 @@
+/*Background*/
+html, body {
+  margin: 0;
+  background-color: #071118;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*Particles*/
+#particles {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
