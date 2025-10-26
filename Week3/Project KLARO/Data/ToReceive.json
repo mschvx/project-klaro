@@ -1,0 +1,209 @@
+{
+  "columns": [
+    "Cost",
+    "CO2",
+    "NO",
+    "SO2",
+    "PM2.5",
+    "CH4",
+    "VOC",
+    "CO",
+    "NH3",
+    "BC",
+    "N2O"
+  ],
+  "projects": [
+    {
+      "name": "Boiler Retrofit",
+      "data": [
+        1400,
+        20,
+        0.9,
+        0.4,
+        0.2,
+        0.1,
+        0.05,
+        1.2,
+        0.02,
+        0.01,
+        0.05
+      ]
+    },
+    {
+      "name": "Traffic Signal/Flow Upgrade",
+      "data": [
+        1000,
+        12,
+        0.6,
+        0.1,
+        0.4,
+        0.05,
+        0.2,
+        3,
+        0.02,
+        0.02,
+        0.01
+      ]
+    },
+    {
+      "name": "Low-Emission Stove Program",
+      "data": [
+        180,
+        2,
+        0.02,
+        0.01,
+        0.7,
+        0,
+        0.01,
+        1.5,
+        0.03,
+        0.2,
+        0
+      ]
+    },
+    {
+      "name": "Industrial Scrubbers",
+      "data": [
+        4200,
+        6,
+        0.4,
+        6,
+        0.4,
+        0,
+        0.1,
+        0.6,
+        0.01,
+        0.01,
+        0
+      ]
+    },
+    {
+      "name": "Reforestation (acre-package)",
+      "data": [
+        220,
+        3.5,
+        0.04,
+        0.02,
+        0.01,
+        0.8,
+        0.03,
+        0.01,
+        0,
+        0.05,
+        0.05
+      ]
+    },
+    {
+      "name": "Agricultural Methane Reduction",
+      "data": [
+        2800,
+        8,
+        0.02,
+        0.01,
+        0.01,
+        27.2,
+        0,
+        5,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "name": "Clean Cookstove & Fuel Switching (community scale)",
+      "data": [
+        450,
+        3.2,
+        0.04,
+        0.02,
+        0.9,
+        0.1,
+        0.02,
+        0,
+        2,
+        0.05,
+        0.2
+      ]
+    },
+    {
+      "name": "Biochar for soils (per project unit)",
+      "data": [
+        1400,
+        6,
+        0.01,
+        0,
+        0,
+        12.5,
+        0,
+        1,
+        0.2,
+        0,
+        0.2
+      ]
+    },
+    {
+      "name": "Industrial VOC",
+      "data": [
+        2600,
+        2,
+        0.01,
+        0,
+        0,
+        0,
+        6.5,
+        0.1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Wetlands restoration",
+      "data": [
+        1800,
+        10,
+        0.03,
+        0.02,
+        0.02,
+        3.2,
+        0.01,
+        0.05,
+        0.15,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "name": "Industrial process change",
+      "data": [
+        5000,
+        3,
+        0.02,
+        0.01,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5
+      ]
+    },
+    {
+      "name": "Behavioral demand-reduction program",
+      "data": [
+        400,
+        9,
+        0.4,
+        0.05,
+        0.05,
+        0.01,
+        0.3,
+        2.5,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ]
+}

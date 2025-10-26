@@ -1,0 +1,142 @@
+{
+  "orientation": "constraints_as_rows",
+  "row_names": {},
+  "col_names": {},
+  "tableau": [
+    [
+      20,
+      0
+    ],
+    [
+      0.9,
+      0
+    ],
+    [
+      0.4,
+      0
+    ],
+    [
+      0.2,
+      0
+    ],
+    [
+      0.1,
+      0
+    ],
+    [
+      0.05,
+      0
+    ],
+    [
+      1.2,
+      0
+    ],
+    [
+      0.02,
+      0
+    ],
+    [
+      0.01,
+      0
+    ],
+    [
+      0.05,
+      0
+    ],
+    [
+      1400,
+      0
+    ]
+  ],
+  "note": "RHS defaults to zeros. To run minimization provide RHS targets (one per pollutant) or a budget constraint.",
+  "result": {
+    "timestamp": "2025-10-26T07:32:47.654Z",
+    "ranking": [
+      {
+        "name": "Behavioral demand-reduction program",
+        "cost": 400,
+        "co2": 9,
+        "ratio": 44.44444444444444
+      },
+      {
+        "name": "Reforestation (acre-package)",
+        "cost": 220,
+        "co2": 3.5,
+        "ratio": 62.857142857142854
+      },
+      {
+        "name": "Boiler Retrofit",
+        "cost": 1400,
+        "co2": 20,
+        "ratio": 70
+      },
+      {
+        "name": "Traffic Signal/Flow Upgrade",
+        "cost": 1000,
+        "co2": 12,
+        "ratio": 83.33333333333333
+      },
+      {
+        "name": "Low-Emission Stove Program",
+        "cost": 180,
+        "co2": 2,
+        "ratio": 90
+      },
+      {
+        "name": "Clean Cookstove & Fuel Switching (community scale)",
+        "cost": 450,
+        "co2": 3.2,
+        "ratio": 140.625
+      },
+      {
+        "name": "Wetlands restoration",
+        "cost": 1800,
+        "co2": 10,
+        "ratio": 180
+      },
+      {
+        "name": "Biochar for soils (per project unit)",
+        "cost": 1400,
+        "co2": 6,
+        "ratio": 233.33333333333334
+      },
+      {
+        "name": "Agricultural Methane Reduction",
+        "cost": 2800,
+        "co2": 8,
+        "ratio": 350
+      },
+      {
+        "name": "Industrial Scrubbers",
+        "cost": 4200,
+        "co2": 6,
+        "ratio": 700
+      },
+      {
+        "name": "Industrial VOC",
+        "cost": 2600,
+        "co2": 2,
+        "ratio": 1300
+      },
+      {
+        "name": "Industrial process change",
+        "cost": 5000,
+        "co2": 3,
+        "ratio": 1666.6666666666667
+      }
+    ],
+    "recommended": {
+      "name": "Behavioral demand-reduction program",
+      "cost": 400,
+      "co2": 9,
+      "ratio": 44.44444444444444
+    },
+    "selection": [
+      "Behavioral demand-reduction program"
+    ],
+    "totals": {
+      "totalCost": 400,
+      "totalCO2": 9
+    }
+  }
+}
