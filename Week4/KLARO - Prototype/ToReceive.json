@@ -1,0 +1,13 @@
+{
+  "projects": [
+    {
+      "name": "Project 1",
+      "data": [14, 1, 7]
+    },
+    {
+      "name": "Project 2",
+      "data": [20, 2, 6]
+    }
+  ],
+  "goals": [4, 20]
+}
