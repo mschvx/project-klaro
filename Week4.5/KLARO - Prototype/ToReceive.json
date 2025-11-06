@@ -1,0 +1,124 @@
+{"projects": [
+    {
+      "name": "Large Solar Park",
+      "data": [4000,60,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "name": "Small Solar Installations",
+      "data": [1200,18,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "name": "Wind Farm",
+      "data": [3800,55,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "name": "Gas-to-renewables conversion",
+      "data": [3200,25,1,0.2,0.1,1.5,0.5,2,0.05,0.01,0.3]
+    },
+    {
+      "name": "Boiler Retrofit",
+      "data": [1400,20,0.9,0.4,0.2,0.1,0.05,1.2,0.02,0.01,0.05]
+    },
+    {
+      "name": "Catalytic Converters for Buses",
+      "data": [2600,30,2.8,0.6,0.8,0,0.5,5,0.01,0.05,0.02]
+    },
+    {
+      "name": "Diesel Bus Replacement",
+      "data": [5000,48,3.2,0.9,1,0,0.7,6,0.02,0.08,0.03]
+    },
+    {
+      "name": "Traffic Signal/Flow Upgrade",
+      "data": [1000,12,0.6,0.1,0.4,0.05,0.2,3,0.02,0.02,0.01]
+    },
+    {
+      "name": "Low-Emission Stove Program",
+      "data": [180,2,0.02,0.01,0.7,0,0.01,1.5,0.03,0.2,0]
+    },
+    {
+      "name": "Residential Insulation/Efficiency",
+      "data": [900,15,0.1,0.05,0.05,0.02,0.02,0.5,0,0,0.01]
+    },
+    {
+      "name": "Industrial Scrubbers",
+      "data": [4200,6,0.4,6,0.4,0,0.1,0.6,0.01,0.01,0]
+    },
+    {
+      "name": "Waste Methane Capture System",
+      "data": [3600,28,0.2,0.1,0.05,8,0.2,0.1,0,0,0.05]
+    },
+    {
+      "name": "Landfill Gas-to-energy",
+      "data": [3400,24,0.15,0.05,0.03,6.5,0.1,0.05,0,0,0.03]
+    },
+    {
+      "name": "Reforestation (acre-package)",
+      "data": [220,3.5,0.04,0.02,0.01,0.8,0.03,0.1,0.01,0.005,0.005]
+    },
+    {
+      "name": "Urban Tree Canopy Program (street trees)",
+      "data": [300,4.2,0.06,0.01,0.03,0.6,0.02,0.15,0.005,0.02,0.002]
+    },
+    {
+      "name": "Industrial Energy Efficiency Retrofit",
+      "data": [1600,22,0.5,0.3,0.15,0.2,0.1,1,0.01,0.01,0.03]
+    },
+    {
+      "name": "Natural Gas Leak Repair",
+      "data": [1800,10,0.05,0.01,0.01,4,0.02,0.02,0,0,0.01]
+    },
+    {
+      "name": "Agricultural Methane Reduction",
+      "data": [2800,8,0.02,0.01,0.02,7.2,0.05,0.02,0.1,0,0.05]
+    },
+    {
+      "name": "Clean Cookstove & Fuel Switching (community scale)",
+      "data": [450,3.2,0.04,0.02,0.9,0.1,0.02,2,0.05,0.25,0]
+    },
+    {
+      "name": "Rail Electrification",
+      "data": [6000,80,2,0.4,1.2,0,0.6,10,0.02,0.1,0.05]
+    },
+    {
+      "name": "EV Charging Infrastructure",
+      "data": [2200,20,0.3,0.05,0.1,0,0.05,0.5,0.01,0.01,0.01]
+    },
+    {
+      "name": "Biochar for soils (per project unit)",
+      "data": [1400,6,0.01,0,0.01,2.5,0.01,0.01,0.2,0,0.02]
+    },
+    {
+      "name": "Industrial VOC",
+      "data": [2600,2,0.01,0,0,0,6.5,0.1,0,0,0]
+    },
+    {
+      "name": "Heavy-Duty Truck Retrofit",
+      "data": [4200,36,2.2,0.6,0.6,0,0.3,4.2,0.01,0.04,0.02]
+    },
+    {
+      "name": "Port/Harbor Electrification",
+      "data": [4800,28,1.9,0.8,0.7,0,0.2,3.6,0.01,0.03,0.02]
+    },
+    {
+      "name": "Black Carbon reduction",
+      "data": [600,1.8,0.02,0.01,0.6,0.05,0.01,1,0.02,0.9,0]
+    },
+    {
+      "name": "Wetlands restoration",
+      "data": [1800,10,0.03,0.02,0.02,3.2,0.01,0.05,0.15,0.02,0.04]
+    },
+    {
+      "name": "Household LPG conversion program",
+      "data": [700,2.5,0.03,0.01,0.4,0.05,0.02,1.2,0.03,0.1,0]
+    },
+    {
+      "name": "Industrial process change",
+      "data": [5000,3,0.02,0.01,0,0,0,0,0,0,1.5]
+    },
+    {
+      "name": "Behavioral demand-reduction program",
+      "data": [400,9,0.4,0.05,0.05,0.01,0.3,2.5,0.01,0.01,0.01]
+    }
+  ],
+  "goals": [1000,35,25,20,60,45,80,12,6,10]
+}
