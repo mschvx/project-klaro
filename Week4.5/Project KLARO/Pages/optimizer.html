@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Pollution Reduction Optimizer - Project KLARO</title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../Styles/background.css">
+		<link rel="stylesheet" href="../Styles/title.css">
+		<link rel="stylesheet" href="../Styles/button.css">
+		<link rel="stylesheet" href="../Styles/header.css">
+		<link rel="stylesheet" href="../Styles/table.css">
+		<link rel="stylesheet" href="../Styles/lightmode.css">
+		<link rel="stylesheet" href="../Styles/darkmode.css">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<style>
+		  /* Ensure dark theme text colors override any lightmode file included earlier */
+		  :root{
+			--text: #e6f7ef;
+			--title-text: #dff7ee;
+			--muted: #98a6a3;
+		  }
+
+			/* make body text explicitly light on dark background (do not override styled buttons) */
+			body, input, label, select, textarea { color: var(--text) !important; }
+
+			/* small layout helpers for optimizer */
+			.optimizer-wrapper { max-width: 1100px; margin: 2.25rem auto; padding: 1rem; z-index: 10; }
+			/* Force readable text across common elements (matches catalogue contrast) */
+			main, .optimizer-wrapper, .table-wrapper, form, .project-grid, .project-item, .summary, #results, #output {
+				color: var(--text) !important;
+			}
+			/* Headings and labels */
+			h1,h2,h3,h4,h5,p,label,li,ol,ul,table,th,td {
+				color: var(--text) !important;
+			}
+			/* Ensure tables inside output use readable colors */
+			#output table, #output th, #output td { color: var(--text) !important; border-color: rgba(255,255,255,0.06); }
+			/* Slightly stronger background for project items so light text reads clearly */
+			.project-item { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); }
+			/* Ensure small action buttons match the main big_button style (same colors as catalogue/details) */
+			.small_button {
+				background: linear-gradient(180deg, #6fe3a3, #2fb87a) !important;
+				color: #052512 !important;
+				border: 0 !important;
+				box-shadow: 0 14px 36px rgba(28,95,64,0.14) !important;
+				transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 160ms ease !important;
+			}
+			/* Ensure main big buttons use the same text color as other pages (don't change sizing) */
+			.big_button { color: #052512 !important; }
+			/* Small spacing tweak so the small buttons feel like compact big buttons */
+			.small_button:active { transform: translateY(1px) !important; }
+			.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; max-height: 420px; overflow: auto; padding: 0.6rem; }
+			.project-item { display:flex; gap:0.6rem; align-items:center; padding:0.6rem; border-radius:10px; background: rgba(255,255,255,0.03); }
+			.project-item label { margin:0; font-weight:600; color: var(--text, #e6f7ef); }
+			.controls { display:flex; gap:0.8rem; align-items:center; margin-bottom:0.8rem; }
+			.summary { margin-top: 0.9rem; padding: 1rem; border-radius: 12px; background: linear-gradient(180deg, rgba(6,18,22,0.9), rgba(8,28,32,0.86)); color: var(--title-text); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+			.small_button { padding: .55rem 1rem; border-radius: 10rem; font-weight:700; font-size:0.95rem; }
+			@media (max-width:880px){ .project-grid{ grid-template-columns: 1fr; } }
+		</style>
+</head>
+<body>
+
+		<canvas id="particles" aria-hidden="true"></canvas>
+
+		<!-- Heading bar-->
+		<nav class="heading-bar" aria-label="Primary menu">
+				<div class="heading-inner">
+						<a class="menu-item" href="details.html">Main</a>
+						<a class="menu-item" href="catalogue.html">Dataset</a>
+						<div class="menu-item active">Optimize</div>
+				</div>
+		</nav>
+
+		<main>
+
+			<div class="optimizer-wrapper">
+				<div class="table-wrapper">
+					<form id="optimizerForm">
+
+						<div class="controls">
+							<button type="button" id="selectAll" class="big_button small_button">Select All</button>
+							<button type="button" id="resetAll" class="big_button small_button">Reset</button>
+							<div style="flex:1"></div>
+							<div id="selectionCount" aria-live="polite" style="color:var(--muted)">0 selected</div>
+						</div>
+
+						<div class="project-grid" id="projectsList">
+							<!-- Checkboxes (kept in same order as catalogue) -->
+							<div class="project-item"><input type="checkbox" id="project1" name="project" value="1"><label for="project1">1. Large Solar Park ($4000)</label></div>
+							<div class="project-item"><input type="checkbox" id="project2" name="project" value="2"><label for="project2">2. Small Solar Installations ($1200)</label></div>
+							<div class="project-item"><input type="checkbox" id="project3" name="project" value="3"><label for="project3">3. Wind Farm ($3800)</label></div>
+							<div class="project-item"><input type="checkbox" id="project4" name="project" value="4"><label for="project4">4. Gas-to-renewables conversion ($3200)</label></div>
+							<div class="project-item"><input type="checkbox" id="project5" name="project" value="5"><label for="project5">5. Boiler Retrofit ($1400)</label></div>
+							<div class="project-item"><input type="checkbox" id="project6" name="project" value="6"><label for="project6">6. Catalytic Converters for Buses ($2600)</label></div>
+							<div class="project-item"><input type="checkbox" id="project7" name="project" value="7"><label for="project7">7. Diesel Bus Replacement ($5000)</label></div>
+							<div class="project-item"><input type="checkbox" id="project8" name="project" value="8"><label for="project8">8. Traffic Signal/Flow Upgrade ($1000)</label></div>
+							<div class="project-item"><input type="checkbox" id="project9" name="project" value="9"><label for="project9">9. Low-Emission Stove Program ($180)</label></div>
+							<div class="project-item"><input type="checkbox" id="project10" name="project" value="10"><label for="project10">10. Residential Insulation/Efficiency ($900)</label></div>
+							<div class="project-item"><input type="checkbox" id="project11" name="project" value="11"><label for="project11">11. Industrial Scrubbers ($4200)</label></div>
+							<div class="project-item"><input type="checkbox" id="project12" name="project" value="12"><label for="project12">12. Waste Methane Capture System ($3600)</label></div>
+							<div class="project-item"><input type="checkbox" id="project13" name="project" value="13"><label for="project13">13. Landfill Gas-to-energy ($3400)</label></div>
+							<div class="project-item"><input type="checkbox" id="project14" name="project" value="14"><label for="project14">14. Reforestation (acre-package) ($220)</label></div>
+							<div class="project-item"><input type="checkbox" id="project15" name="project" value="15"><label for="project15">15. Urban Tree Canopy Program (street trees) ($300)</label></div>
+							<div class="project-item"><input type="checkbox" id="project16" name="project" value="16"><label for="project16">16. Industrial Energy Efficiency Retrofit ($1600)</label></div>
+							<div class="project-item"><input type="checkbox" id="project17" name="project" value="17"><label for="project17">17. Natural Gas Leak Repair ($1800)</label></div>
+							<div class="project-item"><input type="checkbox" id="project18" name="project" value="18"><label for="project18">18. Agricultural Methane Reduction ($2800)</label></div>
+							<div class="project-item"><input type="checkbox" id="project19" name="project" value="19"><label for="project19">19. Clean Cookstove & Fuel Switching (community scale) ($450)</label></div>
+							<div class="project-item"><input type="checkbox" id="project20" name="project" value="20"><label for="project20">20. Rail Electrification ($6000)</label></div>
+							<div class="project-item"><input type="checkbox" id="project21" name="project" value="21"><label for="project21">21. EV Charging Infrastructure ($2200)</label></div>
+							<div class="project-item"><input type="checkbox" id="project22" name="project" value="22"><label for="project22">22. Biochar for soils (per project unit) ($1400)</label></div>
+							<div class="project-item"><input type="checkbox" id="project23" name="project" value="23"><label for="project23">23. Industrial VOC ($2600)</label></div>
+							<div class="project-item"><input type="checkbox" id="project24" name="project" value="24"><label for="project24">24. Heavy-Duty Truck Retrofit ($4200)</label></div>
+							<div class="project-item"><input type="checkbox" id="project25" name="project" value="25"><label for="project25">25. Port/Harbor Electrification ($4800)</label></div>
+							<div class="project-item"><input type="checkbox" id="project26" name="project" value="26"><label for="project26">26. Black Carbon reduction ($600)</label></div>
+							<div class="project-item"><input type="checkbox" id="project27" name="project" value="27"><label for="project27">27. Wetlands restoration ($1800)</label></div>
+							<div class="project-item"><input type="checkbox" id="project28" name="project" value="28"><label for="project28">28. Household LPG conversion program ($700)</label></div>
+							<div class="project-item"><input type="checkbox" id="project29" name="project" value="29"><label for="project29">29. Industrial process change ($5000)</label></div>
+							<div class="project-item"><input type="checkbox" id="project30" name="project" value="30"><label for="project30">30. Behavioral demand-reduction program ($400)</label></div>
+						</div>
+
+						<div class="summary" id="summaryBox" aria-live="polite">
+							<div><strong>Selected:</strong> <span id="selCount">0</span></div>
+							<div><strong>Estimated cost:</strong> $<span id="selCost">0</span></div>
+							<div><strong>Estimated CO2:</strong> <span id="selCO2">0</span> tons</div>
+						</div>
+
+						<div style="margin-top:1rem">
+							<button type="submit" id="optimizeButton" class="big_button" style="width:100%">Optimize Solution</button>
+						</div>
+
+					</form>
+
+					<div id="results" style="margin-top:1.2rem">
+						<h2 style="margin:0 0 0.6rem 0; color:var(--title-accent)">Results</h2>
+						<div id="output"> <!-- results populated by showResults/optimizer.js --> </div>
+					</div>
+
+				</div>
+			</div>
+		</main>
+
+	<!--JS Scripts-->
+	<script src="../Scripts/particles.js"></script>
+	<script src="../Scripts/image_rotate.js"></script>
+	<script src="../Scripts/optimizer.js"></script>
+
+	<!-- Small script to fetch and display Data/ToSend.json results (kept compatible with previous implementation) -->
+	<script>
+	async function showResults() {
+		const out = document.getElementById('output');
+		// If the user hasn't selected any projects yet, don't show results on load.
+		// This prevents auto-displaying previous results; user must select and run Optimize.
+		try {
+			const selectedCount = document.querySelectorAll('input[name="project"]:checked').length;
+			if (selectedCount === 0) {
+				out.innerHTML = '<div style="color:var(--muted)"><strong>No results yet</strong>: select projects and click <em>Optimize Solution</em>.</div>';
+				return;
+			}
+		} catch (e) { /* ignore if DOM not ready */ }
+		try {
+			const resp = await fetch('/Data/ToSend.json');
+			if (!resp.ok) { out.innerText = 'No results available yet.'; return; }
+	    const data = await resp.json();
+
+		    // If the backend wrote an error (e.g., infeasible/unbounded), show it here
+		    if (data && data.error) {
+			// show plain text to avoid HTML injection
+			out.textContent = `Error: ${data.error}`;
+			return;
+		    }
+
+		    // Decide cost to display: priority -> minimization.Z, result.recommended.cost
+					function formatCostValue(v){
+						const n = Number(v);
+						if (!Number.isFinite(n)) return 'N/A';
+						return (Math.abs(n) % 1 === 0) ? Math.abs(n).toFixed(0) : Math.abs(n).toFixed(2);
+					}
+
+					let costVal = null;
+					if (data.minimization && (data.minimization.Z !== undefined && data.minimization.Z !== null)) {
+						costVal = formatCostValue(data.minimization.Z);
+					} else if (data.result && data.result.recommended && data.result.recommended.cost !== undefined) {
+						costVal = formatCostValue(data.result.recommended.cost);
+					}
+
+					if (costVal !== null) {
+						// Display only the dollar sign and the numeric cost, nothing else
+						// If a detailed breakdown is present, also render it as a table below
+						out.innerHTML = '';
+						const costDiv = document.createElement('div');
+						costDiv.textContent = `$${costVal}`;
+						out.appendChild(costDiv);
+						if (data.minimization && Array.isArray(data.minimization.breakdown) && data.minimization.breakdown.length > 0) {
+							// Build breakdown table: Project | Units | Cost($)
+							const brTable = document.createElement('table');
+							brTable.style.width = '100%';
+							brTable.style.borderCollapse = 'collapse';
+							brTable.style.marginTop = '0.6rem';
+							const thead = document.createElement('thead');
+							const headerRow = document.createElement('tr');
+							['Mitigation Project','Number of Project Units','Cost($)'].forEach(h => {
+								const th = document.createElement('th'); th.textContent = h; th.style.textAlign = 'left'; th.style.borderBottom = '1px solid rgba(255,255,255,0.08)'; th.style.padding = '6px 8px'; headerRow.appendChild(th);
+							});
+							thead.appendChild(headerRow);
+							brTable.appendChild(thead);
+							const tbody = document.createElement('tbody');
+							data.minimization.breakdown.forEach(row => {
+								// Skip rows with zero (or near-zero) units
+								const unitsNum = Number(row.units);
+								if (!Number.isFinite(unitsNum) || Math.abs(unitsNum) < 1e-9) return;
+								const tr = document.createElement('tr');
+								const tdName = document.createElement('td'); tdName.textContent = (row.name || ''); tdName.style.padding = '6px 8px'; tr.appendChild(tdName);
+	                			const tdUnits = document.createElement('td');
+	                			if (row.units !== undefined && row.units !== null) {
+	                				const u = Number(row.units);
+	                				const uStr = (Math.abs(u - Math.round(u)) < 1e-8) ? String(Math.round(u)) : String(parseFloat(u.toFixed(8)));
+	                				tdUnits.textContent = uStr;
+	                			} else {
+	                				tdUnits.textContent = '';
+	                			}
+										tdUnits.style.padding = '6px 8px'; tr.appendChild(tdUnits);
+								const tdCost = document.createElement('td'); tdCost.textContent = (row.cost !== undefined && row.cost !== null) ? Number(row.cost).toFixed(2) : ''; tdCost.style.padding = '6px 8px'; tr.appendChild(tdCost);
+								tbody.appendChild(tr);
+							});
+							brTable.appendChild(tbody);
+							out.appendChild(brTable);
+								// Render iteration tableaus and basic solutions if present
+								if (data.minimization && Array.isArray(data.minimization.iterations) && data.minimization.iterations.length > 0) {
+									data.minimization.iterations.forEach(it => {
+										const itDiv = document.createElement('div');
+										itDiv.style.marginTop = '0.8rem';
+										const title = document.createElement('h4');
+										title.textContent = `${it.phase} - iteration ${it.step}`;
+										itDiv.appendChild(title);
+										// tableau expected as array of rows
+										if (Array.isArray(it.tableau) && it.tableau.length > 0) {
+											const t = document.createElement('table');
+											t.style.width = '100%';
+											const thd = document.createElement('thead');
+											const headerRow = document.createElement('tr');
+											// create column headers c1..cN
+											const ncols = Array.isArray(it.tableau[0]) ? it.tableau[0].length : 0;
+											const corner = document.createElement('th'); corner.textContent = ''; headerRow.appendChild(corner);
+											for (let ci = 0; ci < ncols; ++ci) { const th = document.createElement('th'); th.textContent = 'c' + (ci+1); headerRow.appendChild(th); }
+											thd.appendChild(headerRow); t.appendChild(thd);
+											const tBody = document.createElement('tbody');
+											it.tableau.forEach((row, ridx) => {
+												const tr = document.createElement('tr');
+												const rn = document.createElement('th'); rn.textContent = 'r' + (ridx+1); tr.appendChild(rn);
+												(row || []).forEach(v => { const td = document.createElement('td'); td.textContent = (v === null || v === undefined) ? '' : String(v); tr.appendChild(td); });
+												tBody.appendChild(tr);
+											});
+											t.appendChild(tBody);
+											itDiv.appendChild(t);
+										}
+										// basics
+										if (Array.isArray(it.basics) && it.basics.length > 0) {
+											const bs = document.createElement('div'); bs.style.marginTop = '0.4rem';
+											const bl = document.createElement('ul');
+											it.basics.forEach(b => { const li = document.createElement('li'); li.textContent = `${b.var}: ${Number(b.value).toFixed(6)}`; bl.appendChild(li); });
+											bs.appendChild(bl); itDiv.appendChild(bs);
+										}
+										out.appendChild(itDiv);
+									});
+								}
+								
+						}
+						return;
+					}
+
+			// Build a simple table for the tableau
+			const table = document.createElement('table');
+			table.style.width = '100%';
+			const thead = document.createElement('thead');
+			const hdrRow = document.createElement('tr');
+			const corner = document.createElement('th'); corner.textContent = ''; hdrRow.appendChild(corner);
+
+			const colNames = Array.isArray(data.col_names) ? data.col_names : (Array.isArray(Object.values(data.col_names)) ? Object.values(data.col_names) : []);
+			if (colNames.length === 0 && data.tableau && data.tableau[0]) {
+				for (let i = 0; i < data.tableau[0].length; i++) colNames.push('c' + (i+1));
+			}
+			colNames.forEach(cn => { const th = document.createElement('th'); th.textContent = cn; hdrRow.appendChild(th); });
+			thead.appendChild(hdrRow); table.appendChild(thead);
+
+			const tbody = document.createElement('tbody');
+			const rowNames = Array.isArray(data.row_names) ? data.row_names : (Array.isArray(Object.values(data.row_names)) ? Object.values(data.row_names) : []);
+			(data.tableau||[]).forEach((row, idx) => {
+				const rn = rowNames[idx] || ('r' + (idx+1));
+				const tr = document.createElement('tr');
+				const th = document.createElement('th'); th.textContent = rn; tr.appendChild(th);
+				(row || []).forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+				tbody.appendChild(tr);
+			});
+			table.appendChild(tbody);
+
+			out.innerHTML = '';
+			out.appendChild(table);
+
+					// Diagnostics (if any)
+					if (data.diagnostics) {
+						const pre = document.createElement('pre'); pre.textContent = 'Diagnostics:\n' + data.diagnostics.join('\n'); out.appendChild(pre);
+					}
+
+						// Helper to attempt fixing common UTF-8/latin1 mojibake (e.g. â€” instead of —)
+						function fixText(s){
+						if (typeof s !== 'string') return s;
+						try {
+							// try re-decoding latin1 -> utf8 (works if text was mis-decoded)
+							const dec = decodeURIComponent(escape(s));
+							s = dec;
+						} catch(e){ /* ignore */ }
+						// common broken sequences -> colon (simple ASCII separator)
+						s = s.replace(/â€”|â€“|â€\u0014/g, ': ');
+						// replace any leftover replacement characters
+						s = s.replace(/\uFFFD/g, '?');
+						return s;
+					}
+
+					if (data.result) {
+						const resDiv = document.createElement('div');
+						resDiv.innerHTML = '<h3>Recommended</h3>';
+						const rec = data.result.recommended;
+						if (rec) {
+							const p = document.createElement('p');
+							const ratio = (rec.ratio !== undefined && rec.ratio !== null && !isNaN(Number(rec.ratio))) ? Number(rec.ratio).toFixed(2) : rec.ratio;
+							p.textContent = `${fixText(rec.name)}: cost ${rec.cost}, CO2 ${rec.co2}, ratio ${ratio}`;
+							resDiv.appendChild(p);
+						}
+						if (Array.isArray(data.result.ranking)) {
+							const list = document.createElement('ol');
+							data.result.ranking.slice(0,5).forEach(r => {
+								const li = document.createElement('li');
+								const ratio = (r.ratio !== undefined && r.ratio !== null && !isNaN(Number(r.ratio))) ? Number(r.ratio).toFixed(2) : r.ratio;
+								li.textContent = `${fixText(r.name)}: ${ratio}`;
+								list.appendChild(li);
+							});
+							resDiv.appendChild(list);
+						}
+						out.appendChild(resDiv);
+					}
+
+		} catch (err) { console.error(err); out.innerText = 'Error loading results.'; }
+	}
+	document.addEventListener('DOMContentLoaded', showResults);
+	</script>
+
+</body>
+</html>
