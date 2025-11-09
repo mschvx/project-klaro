@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Optimization Results</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/background.css">
+  <link rel="stylesheet" href="../Styles/title.css">
+  <link rel="stylesheet" href="../Styles/button.css">
+  <link rel="stylesheet" href="../Styles/header.css">
+  <link rel="stylesheet" href="../Styles/optimizer.css">
+  <link rel="stylesheet" href="../Styles/table.css">
+  <link rel="stylesheet" href="../Styles/results.css">
+  <link rel="stylesheet" href="../Styles/modal.css">
+</head>
+<body>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <main>
+    <div class="optimizer-wrapper">
+      <div class="catalogue-intro results-title">
+        <div class="results-top-row">
+          <div style="text-align:left;">
+            <h2 style="margin:0">RESULTS</h2>
+            <div id="resultsCost" class="results-cost" aria-live="polite"></div>
+            <div class="results-sub" style="margin-top:0.35rem;color:var(--muted);">Scroll below for more details about the solution</div>
+          </div>
+          <div style="margin-left:auto; display:flex; align-items:center;">
+            <a href="optimizer.html" class="big_button small_button go-back">Go back</a>
+          </div>
+        </div>
+      </div>
+      <div id="resultsContainer" class="results-container">
+        <div id="summary" class="results-summary" aria-live="polite"></div>
+        <div id="breakdown" class="results-breakdown"></div>
+        <div id="iterations" class="results-iterations"></div>
+        <div id="paginationControls" class="pagination" aria-label="Pagination controls" style="margin-top:1rem"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- scripts -->
+  <script src="../Scripts/particles.js"></script>
+  <script src="../Scripts/image_rotate.js"></script>
+  <script src="../Scripts/modal.js"></script>
+  <script src="../Scripts/table.js"></script>
+  <script src="../Scripts/results.js"></script>
+  <script src="../Scripts/results-ui.js"></script>
+</body>
+</html>

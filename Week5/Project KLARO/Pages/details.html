@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="../Styles/background.css">
+    <link rel="stylesheet" href="../Styles/title.css">
+    <link rel="stylesheet" href="../Styles/button.css">
+    <link rel="stylesheet" href="../Styles/header.css">
+  <link rel="stylesheet" href="../Styles/lightmode.css">
+  <link rel="stylesheet" href="../Styles/darkmode.css">
+        <title>Project KLARO</title>
+    </head>
+
+    <body>
+      <!--Particles-->
+      <canvas id="particles"></canvas>
+
+    <main>
+        <!--Header-->
+        <nav class="heading-bar" aria-label="Primary menu">
+            <div class="heading-inner">
+                <div class="menu-item active">Main</div>
+                <a class="menu-item" href="catalogue.html">Datasets</a>
+                <a class="menu-item" href="optimizer.html">Optimize</a>
+            </div>
+        </nav>
+
+        <!--Title-->
+        <div class="title_box">
+            <h1 class="title_name">Project KLARO</h1>
+            <p class="title_meaning">Knowledge-Driven Linear-Programming Analysis for Resource Optimization</p>
+            <p class="title_description">A cost-optimization system aimed to reduce Greenvale's pollution and improve environmental conditions</p>
+        </div>
+
+        <!--About -->
+        <section class="feature feature--light">
+          <div class="feature-inner">
+            <div class="img-half">
+              <img src="../Media/about_skyline.png" alt="uwu">
+            </div>
+            <div class="text-half">
+              <h2>About Project KLARO</h2>
+              <b><p class="muted">Developed by Allane Lee Castro</p></b>
+              <p>Project KLARO, short for Knowledge-Driven Linear-Programming Analysis for Resource Optimization, is an optimization tool designed to determine which environmental projects yield the most cost-efficient pollution reduction outcomes using the Simplex Method.</p>
+              <p>This tool aims to promote transparency and data-driven decision-making in Greenvale to meet its citywide pollutant reduction targets.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- View Dataset and Start Optimization -->
+        <section class="action-row" aria-label="Actions">
+          <div class="action-box view-dataset">
+            <a class="big_button" href="catalogue.html">View Dataset</a>
+            <p>Browse the dataset catalogue and preview sample records.</p>
+          </div>
+          <div class="action-box start-optimization">
+            <button class="big_button" onclick="window.location.href='optimizer.html'">Start Optimization</button>
+            <p>Run the optimizer to compute cost-effective pollution reduction plans.</p>
+          </div>
+        </section>
+
+        <!-- Tutorial -->
+        <section class="feature feature--dark" aria-label="Tutorial">
+          <div class="feature-inner">
+            <div class="action-box tutorial-box" style="max-width:1200px;margin:0.6rem auto 0.2rem;padding:1.6rem 2rem;border-radius:12px;text-align:center;">
+                <h2 style="margin:0 0 0.4rem 0;color:var(--accent);">Tutorial</h2>
+              <p style="margin-top:0.2rem; color:var(--muted); font-size:1rem;">Feeling stuck? Watch our tutorial for navigation and a quick walkthrough of the website.</p>
+              <div class="video-container tutorial-video" style="max-width:1100px;margin:1rem auto 0;">
+                <iframe class="embed-iframe" src="https://www.youtube.com/embed/m4_9TFeMfJE" title="Project KLARO tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+  <!--JS Scripts-->
+  <script src="../Scripts/particles.js"></script>
+  <script src="../Scripts/image_rotate.js"></script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+/* Optimizer page specific styles extracted from inline <style> in Pages/optimizer.html */
+:root{
+  --text: #e6f7ef;
+  --title-text: #dff7ee;
+  --muted: #98a6a3;
+}
+
+/* make body text explicitly light on dark background (do not override styled buttons) */
+body, input, label, select, textarea { color: var(--text) !important; }
+
+/* small layout helpers for optimizer */
+.optimizer-wrapper { max-width: 1100px; margin: 0.6rem auto; padding: 1rem; z-index: 10; }
+
+/* Reduce space between navbar and intro on optimizer page to match details.html */
+.optimizer-wrapper .catalogue-intro { margin-top: 0.6rem; }
+/* Force readable text across common elements (matches catalogue contrast) */
+main, .optimizer-wrapper, .table-wrapper, form, .project-grid, .project-item, .summary {
+    color: var(--text) !important;
+}
+/* Headings and labels */
+h1,h2,h3,h4,h5,p,label,li,ol,ul,table,th,td {
+    color: var(--text) !important;
+}
+/* Results moved to a separate page; output-specific table styles removed from optimizer stylesheet */
+/* Slightly stronger background for project items so light text reads clearly */
+.project-item { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); }
+/* Ensure small action buttons match the main big_button style (same colors as catalogue/details) */
+.small_button {
+    background: linear-gradient(180deg, #6fe3a3, #2fb87a) !important;
+    color: #052512 !important;
+    border: 0 !important;
+    box-shadow: 0 14px 36px rgba(28,95,64,0.14) !important;
+    transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 160ms ease !important;
+}
+/* Ensure main big buttons use the same text color as other pages (don't change sizing) */
+.big_button { color: #052512 !important; }
+/* Small spacing tweak so the small buttons feel like compact big buttons */
+.small_button:active { transform: translateY(1px) !important; }
+.project-grid { display: flex; gap: 1rem; padding: 0.6rem; justify-content: center; }
+.project-grid .project-col { flex: 0 0 48%; display:flex; flex-direction:column; gap:0.9rem; }
+
+/* Project item card: inline with checkbox on the left and label filling the row */
+.project-item { display:flex; align-items:center; gap:0.6rem; border-radius:12px; overflow:hidden; }
+.project-item label {
+    display:block;
+    flex: 1 1 auto;
+    padding:0.85rem 1rem;
+    margin:0;
+    font-weight:600;
+    color: var(--text, #e6f7ef);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:10px;
+    transition: background .12s ease;
+    cursor: pointer;
+    text-align: left; /* keep labels left-aligned for readability */
+}
+
+/* Checkbox styling (kept accessible) */
+.project-item input[type="checkbox"] {
+    margin:0 10px;
+    width:18px; height:18px;
+    border-radius:6px;
+    border:2px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    vertical-align: middle;
+    cursor: pointer;
+}
+.project-item input[type="checkbox"]:checked {
+    background: linear-gradient(180deg, rgba(111,227,163,0.14), rgba(47,184,120,0.08));
+    border-color: var(--accent, #6fe3a3);
+    box-shadow: 0 10px 30px rgba(47,184,120,0.06) inset;
+}
+
+/* When a checkbox is checked, style the following label to look selected */
+.project-item input[type="checkbox"]:checked + label {
+    /* subtle selected state without glow or lift */
+    background: linear-gradient(180deg, rgba(47,184,120,0.03), rgba(47,184,120,0.01));
+}
+
+/* Hover on label */
+.project-item label:hover {
+    /* remove glow and lift on hover; keep a very subtle background change only */
+    transform: none;
+    box-shadow: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+}
+.controls { display:flex; gap:0.8rem; align-items:center; margin-bottom:0.8rem; }
+.small_button { padding: .55rem 1rem; border-radius: 10rem; font-weight:700; font-size:0.95rem; }
+/* summary removed per user request */
+@media (max-width:880px){ 
+    .project-grid{ flex-direction: column; }
+    .project-grid .project-col{ width:100%; }
+}
+
+/* Make the intro heading green to match catalogue/details pages */
+.catalogue-intro h2 {
+    color: var(--accent, #6fe3a3);
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+/* Stronger, specific override for optimizer page to ensure the H2 is green */
+.optimizer-wrapper .catalogue-intro h2 {
+    color: var(--accent, #6fe3a3) !important;
+    font-weight: 800 !important;
+}

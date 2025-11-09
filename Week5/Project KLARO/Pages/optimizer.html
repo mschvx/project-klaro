@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Optimizer</title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../Styles/background.css">
+		<link rel="stylesheet" href="../Styles/title.css">
+		<link rel="stylesheet" href="../Styles/button.css">
+		<link rel="stylesheet" href="../Styles/header.css">
+		<link rel="stylesheet" href="../Styles/table.css">
+		<link rel="stylesheet" href="../Styles/lightmode.css">
+		<link rel="stylesheet" href="../Styles/darkmode.css">
+
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+				<link rel="stylesheet" href="../Styles/optimizer.css">
+				<link rel="stylesheet" href="../Styles/modal.css">
+</head>
+<body>
+
+		<canvas id="particles" aria-hidden="true"></canvas>
+
+		<!-- Heading bar-->
+		<nav class="heading-bar" aria-label="Primary menu">
+				<div class="heading-inner">
+						<a class="menu-item" href="details.html">Main</a>
+						<a class="menu-item" href="catalogue.html">Dataset</a>
+						<div class="menu-item active">Optimize</div>
+				</div>
+		</nav>
+
+		<main>
+
+			<div class="optimizer-wrapper">
+				<!-- Intro box matching `catalogue-intro` style for visual consistency -->
+				<div class="catalogue-intro">
+				  <h2>Optimize Projects</h2>
+				  <p>Select mitigation projects and run the optimizer.</p>
+				</div>
+				<div class="table-wrapper">
+					<form id="optimizerForm">
+
+						<div class="controls">
+							<button type="button" id="selectAll" class="big_button small_button">Select All</button>
+							<button type="button" id="resetAll" class="big_button small_button">Reset</button>
+							<div style="flex:1"></div>
+						</div>
+
+						<div class="project-grid" id="projectsList">
+						  <!-- Left column: projects 1 - 15 -->
+						  <div class="project-col">
+						    <div class="project-item"><input type="checkbox" id="project1" name="project" value="1"><label for="project1">1. Large Solar Park ($4000)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project2" name="project" value="2"><label for="project2">2. Small Solar Installations ($1200)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project3" name="project" value="3"><label for="project3">3. Wind Farm ($3800)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project4" name="project" value="4"><label for="project4">4. Gas-to-renewables conversion ($3200)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project5" name="project" value="5"><label for="project5">5. Boiler Retrofit ($1400)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project6" name="project" value="6"><label for="project6">6. Catalytic Converters for Buses ($2600)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project7" name="project" value="7"><label for="project7">7. Diesel Bus Replacement ($5000)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project8" name="project" value="8"><label for="project8">8. Traffic Signal/Flow Upgrade ($1000)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project9" name="project" value="9"><label for="project9">9. Low-Emission Stove Program ($180)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project10" name="project" value="10"><label for="project10">10. Residential Insulation/Efficiency ($900)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project11" name="project" value="11"><label for="project11">11. Industrial Scrubbers ($4200)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project12" name="project" value="12"><label for="project12">12. Waste Methane Capture System ($3600)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project13" name="project" value="13"><label for="project13">13. Landfill Gas-to-energy ($3400)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project14" name="project" value="14"><label for="project14">14. Reforestation (acre-package) ($220)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project15" name="project" value="15"><label for="project15">15. Urban Tree Canopy Program (street trees) ($300)</label></div>
+						  </div>
+						  <!-- Right column: projects 16 - 30 -->
+						  <div class="project-col">
+						    <div class="project-item"><input type="checkbox" id="project16" name="project" value="16"><label for="project16">16. Industrial Energy Efficiency Retrofit ($1600)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project17" name="project" value="17"><label for="project17">17. Natural Gas Leak Repair ($1800)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project18" name="project" value="18"><label for="project18">18. Agricultural Methane Reduction ($2800)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project19" name="project" value="19"><label for="project19">19. Clean Cookstove & Fuel Switching (community scale) ($450)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project20" name="project" value="20"><label for="project20">20. Rail Electrification ($6000)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project21" name="project" value="21"><label for="project21">21. EV Charging Infrastructure ($2200)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project22" name="project" value="22"><label for="project22">22. Biochar for soils (per project unit) ($1400)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project23" name="project" value="23"><label for="project23">23. Industrial VOC ($2600)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project24" name="project" value="24"><label for="project24">24. Heavy-Duty Truck Retrofit ($4200)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project25" name="project" value="25"><label for="project25">25. Port/Harbor Electrification ($4800)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project26" name="project" value="26"><label for="project26">26. Black Carbon reduction ($600)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project27" name="project" value="27"><label for="project27">27. Wetlands restoration ($1800)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project28" name="project" value="28"><label for="project28">28. Household LPG conversion program ($700)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project29" name="project" value="29"><label for="project29">29. Industrial process change ($5000)</label></div>
+						    <div class="project-item"><input type="checkbox" id="project30" name="project" value="30"><label for="project30">30. Behavioral demand-reduction program ($400)</label></div>
+						  </div>
+						</div>
+
+
+
+						<div style="margin-top:1rem">
+							<button type="submit" id="optimizeButton" class="big_button" style="width:100%">Optimize Solution</button>
+						</div>
+
+					</form>
+
+					<!-- Results removed from optimizer page — results are shown on Pages/results.html -->
+
+				</div>
+			</div>
+		</main>
+
+	<!--JS Scripts-->
+	<script src="../Scripts/particles.js"></script>
+	<script src="../Scripts/image_rotate.js"></script>
+	<script src="../Scripts/modal.js"></script>
+	<script src="../Scripts/optimizer.js"></script>
+
+	<!-- results-handling removed from optimizer page; results are shown on Pages/results.html -->
+
+</body>
+</html>

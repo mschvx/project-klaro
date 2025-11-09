@@ -1,0 +1,95 @@
+/* Modal styles matching site theme (dark background, green accent) */
+:root {
+  --modal-bg: rgba(3,8,7,0.72);
+  --panel-bg: linear-gradient(180deg, #0b2a21, #061812);
+  --accent: #6fe3a3;
+  --text: #e6f7ef;
+  --muted: #98a6a3;
+}
+
+/* Overlay */
+.kl-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--modal-bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1.2rem;
+}
+.kl-modal-overlay.visible { display: flex; }
+
+/* Dialog panel */
+.kl-modal {
+  background: var(--panel-bg);
+  color: var(--text);
+  max-width: 640px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 18px 60px rgba(3,8,7,0.6), 0 3px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transform: translateY(6px);
+  transition: transform 160ms ease, opacity 140ms ease;
+}
+.kl-modal.visible { transform: translateY(0); }
+
+.kl-modal-header {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  padding: 1.1rem 1.2rem;
+  border-bottom: 1px solid rgba(111,227,163,0.06);
+}
+.kl-modal-title {
+  font-weight:800;
+  font-size:1.05rem;
+  color: var(--accent);
+  margin:0;
+}
+.kl-modal-close {
+  margin-left:auto;
+  background:transparent;
+  border:0;
+  color: var(--muted);
+  font-weight:700;
+  cursor:pointer;
+  padding:0.3rem 0.6rem;
+  border-radius:8px;
+}
+.kl-modal-close:hover { color: var(--text); background: rgba(255,255,255,0.02); }
+
+.kl-modal-body { padding:1rem 1.2rem; font-size:0.98rem; color:var(--text); }
+.kl-modal-body p { margin:0 0 0.6rem 0; color:var(--text); }
+.kl-modal-actions {
+  display:flex;
+  gap:0.6rem;
+  padding:0.85rem 1.2rem 1.2rem 1.2rem;
+  justify-content:flex-end;
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+.kl-btn {
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  font-weight:700;
+  cursor:pointer;
+  border:0;
+}
+.kl-btn-primary { background: linear-gradient(180deg, #6fe3a3, #2fb87a); color:#052512; }
+.kl-btn-ghost { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,0.03); }
+
+/* Type-specific icon / accent */
+.kl-modal-type { width:40px; height:40px; border-radius:8px; display:inline-grid; place-items:center; background: rgba(111,227,163,0.06); color:var(--accent); font-weight:800; }
+
+/* Small responsive tweak */
+@media (max-width:480px){
+  .kl-modal { max-width: 92%; }
+  .kl-modal-header { padding: 0.8rem; }
+  .kl-modal-body { padding:0.9rem; }
+}
+
+/* User request: hide the left icon and the top-right close glyph */
+.kl-modal-type, .kl-modal-close { display: none !important; }
+.kl-modal-header { gap: 0.5rem; }
+.kl-modal-title { margin-left: 0; }
